@@ -31,6 +31,7 @@
 
                 <div class="card">
                     <form action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data">
+                        <!-- Form Fields -->>">
                         @csrf
                         <div class="card-header">
                             <h4>Input Text</h4>
@@ -44,6 +45,19 @@
                             @enderror"
                                     name="name">
                                 @error('name')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label>Description</label>
+                                <input type="text"
+                                    class="form-control @error('description')
+                                is-invalid
+                            @enderror"
+                                    name="description">
+                                @error('description')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>

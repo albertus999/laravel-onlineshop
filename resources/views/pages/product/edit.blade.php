@@ -30,7 +30,8 @@
 
 
                 <div class="card">
-                    <form action="{{ route('product.update', $product) }}" method="POST">
+                    <form action="{{ route('product.update', $product) }}" method="POST" enctype="multipart/form-data">
+                        <!-- Form Fields -->>
                         @csrf
                         @method('PUT')
                         <div class="card-header">
@@ -45,6 +46,19 @@
                             @enderror"
                                     name="name" value="{{ $product->name }}">
                                 @error('name')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label>Description</label>
+                                <input type="text"
+                                    class="form-control @error('description')
+                                is-invalid
+                            @enderror"
+                                    name="description" value="{{ $product->description }}">
+                                @error('description')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>

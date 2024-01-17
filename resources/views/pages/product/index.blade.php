@@ -13,7 +13,7 @@
             <div class="section-header">
                 <h1>Products</h1>
                 <div class="section-header-button">
-                    <a href="{{ route('product.create') }}" class="btn btn-primary">Add New</a>
+                    <a href="{{ route('product.create') }}" class="btn btn-primary">Add New Product</a>
                 </div>
                 <div class="section-header-breadcrumb">
                     <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
@@ -35,16 +35,31 @@
                         <div class="card">
 
                             <div class="card-body">
-
-                                <div class="float-right">
-                                    <form method="GET" action="{{ route('product.index') }}">
+                                <div class="float-left">
+                                    <form method="GET" action="{{ route('product.index') }}" class="mt-3">
                                         <div class="input-group">
-                                            <input type="text" class="form-control" placeholder="Search" name="product">
+                                            <select class="form-control" name="category">
+                                                <option value="">All Categories</option>
+                                                @foreach ($categories as $category)
+                                                    <option value="{{ $category->name }}">{{ $category->name }}</option>
+                                                @endforeach
+                                            </select>
                                             <div class="input-group-append">
                                                 <button class="btn btn-primary"><i class="fas fa-search"></i></button>
                                             </div>
                                         </div>
                                     </form>
+                                </div>
+                                <div class="float-right">
+                                    <form method="GET" action="{{ route('product.index') }}">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" placeholder="Search" name="name">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-primary"><i class="fas fa-search"></i></button>
+                                            </div>
+                                        </div>
+                                    </form>
+
                                 </div>
 
                                 <div class="clearfix mb-3"></div>
@@ -60,12 +75,13 @@
                                             <th>Created At</th>
                                             <th>Action</th>
                                         </tr>
+                                        
                                         @foreach ($products as $product)
                                             <tr>
 
                                                 <td>{{ $product->name }}
                                                 </td>
-                                                <td>{{ $product->category->name ?? 'No Category' }}
+                                                <td>{{ $product->category->name }}
                                                 </td>
                                                 <td>{{ $product->price }}
                                                 </td>

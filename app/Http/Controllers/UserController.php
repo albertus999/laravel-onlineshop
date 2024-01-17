@@ -17,14 +17,18 @@ class UserController extends Controller
             ->when($request->input('name'), function ($query, $name) {
                 return $query->where('name', 'like', '%' . $name . '%');
             })
+            ->orderBy('id', 'desc')
             ->paginate(5);
-        return view('pages.users.index', compact('users'));
+
+
+
+        return view('pages.user.index', compact('users'));
     }
 
     //create
     public function create()
     {
-        return view('pages.users.create');
+        return view('pages.user.create')->with('success', 'User successfully created');
     }
 
     //store
@@ -33,7 +37,7 @@ class UserController extends Controller
         $data = $request->all();
         $data['password'] = Hash::make($request->input('password'));
         User::create($data);
-        return redirect()->route('user.index');
+        return redirect()->route('user.index')->with('success', 'User successfully created');
     }
 
     //show
@@ -46,7 +50,7 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::findOrFail($id);
-        return view('pages.users.edit', compact('users'));
+        return view('pages.user.edit', compact('user'));
     }
 
     //update
@@ -70,6 +74,6 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
         $user->delete();
-        return redirect()->route('user.index');
+        return redirect()->route('user.index')->with('success', 'User successfully deleted');;
     }
 }

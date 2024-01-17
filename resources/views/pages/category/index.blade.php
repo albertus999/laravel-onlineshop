@@ -13,7 +13,7 @@
             <div class="section-header">
                 <h1>Categories</h1>
                 <div class="section-header-button">
-                    <a href="{{ route('category.create') }}" class="btn btn-primary">Add New</a>
+                    <a href="{{ route('category.create') }}" class="btn btn-primary">Add New Category</a>
                 </div>
                 <div class="section-header-breadcrumb">
                     <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
@@ -28,8 +28,6 @@
                     </div>
                 </div>
 
-
-
                 <div class="row mt-4">
                     <div class="col-12">
                         <div class="card">
@@ -39,12 +37,13 @@
                                 <div class="float-right">
                                     <form method="GET" action="{{ route('category.index') }}">
                                         <div class="input-group">
-                                            <input type="text" class="form-control" placeholder="Search" name="category">
+                                            <input type="text" class="form-control" placeholder="Search" name="name">
                                             <div class="input-group-append">
                                                 <button class="btn btn-primary"><i class="fas fa-search"></i></button>
                                             </div>
                                         </div>
                                     </form>
+
                                 </div>
 
                                 <div class="clearfix mb-3"></div>
@@ -54,7 +53,7 @@
                                         <tr>
 
                                             <th>Name</th>
-
+                                            {{-- <th>Description</th> --}}
                                             <th>Created At</th>
                                             <th>Action</th>
                                         </tr>
@@ -63,7 +62,8 @@
 
                                                 <td>{{ $category->name }}
                                                 </td>
-
+                                                {{-- <td>{{ $category->description }}
+                                                </td> --}}
                                                 <td>{{ $category->created_at }}</td>
                                                 <td>
                                                     <div class="d-flex justify-content-left">

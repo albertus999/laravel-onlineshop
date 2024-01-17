@@ -13,7 +13,7 @@
             <div class="section-header">
                 <h1>Users</h1>
                 <div class="section-header-button">
-                    <a href="{{ route('user.create') }}" class="btn btn-primary">Add New</a>
+                    <a href="{{ route('user.create') }}" class="btn btn-primary">Add New User</a>
                 </div>
                 <div class="section-header-breadcrumb">
                     <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
@@ -37,17 +37,9 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4>All Posts</h4>
+                                <h4>All Users</h4>
                             </div>
                             <div class="card-body">
-                                <div class="float-left">
-                                    <select class="form-control selectric">
-                                        <option>Action For Selected</option>
-                                        <option>Move to Draft</option>
-                                        <option>Move to Pending</option>
-                                        <option>Delete Pemanently</option>
-                                    </select>
-                                </div>
                                 <div class="float-right">
                                     <form method="GET" action="{{ route('user.index') }}">
                                         <div class="input-group">

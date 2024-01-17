@@ -49,7 +49,19 @@
                                     </div>
                                 @enderror
                             </div>
-
+                            <div class="form-group">
+                                <label>Description</label>
+                                <input type="text"
+                                    class="form-control @error('description')
+                                is-invalid
+                            @enderror"
+                                    name="description">
+                                @error('description')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
                         </div>
                         <div class="card-footer text-right">
                             <button class="btn btn-primary">Submit</button>

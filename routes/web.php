@@ -1,8 +1,7 @@
 <?php
 
-use App\Http\Controllers\UserController;
-// use App\Http\Controllers\SoalController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,35 +18,13 @@ Route::get('/', function () {
     return view('pages.auth.login');
 });
 
-// routes/web.php
-Route::get('/users', 'UserController@index')->name('users.index');
-
-
 Route::middleware(['auth'])->group(function () {
-    Route::get('/home', function () {
+    Route::get('home', function () {
         return view('pages.dashboard');
     })->name('home');
-
-    Route::resource('users', UserController::class);
-    // Route::resource('soals', SoalController::class);
-
-    // Route::get('/soals', [SoalController::class, 'index'])->name('soals.index');
-
+    Route::resource('user', UserController::class);
+    //category
+    Route::resource('category', \App\Http\Controllers\CategoryController::class);
+    //product
+    Route::resource('product', \App\Http\Controllers\ProductController::class);
 });
-
-
-
-
-// ini adalah route awal sebelum install fortify
-// Route::get('/login', function () {
-//     return view('pages.auth.login');
-// })->name('login');
-
-// Route::get('/register', function () {
-//     return view('pages.auth.register');
-// })->name('register');
-
-// Route::get('/users', function () {
-//     return view('pages.users.index');
-// })->name('users');
-

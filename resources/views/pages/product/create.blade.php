@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Edit Product')
+@section('title', 'Product Create')
 
 @push('style')
     <!-- CSS Libraries -->
@@ -30,9 +30,8 @@
 
 
                 <div class="card">
-                    <form action="{{ route('product.update', $product) }}" method="POST">
+                    <form action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
-                        @method('PUT')
                         <div class="card-header">
                             <h4>Input Text</h4>
                         </div>
@@ -43,7 +42,7 @@
                                     class="form-control @error('name')
                                 is-invalid
                             @enderror"
-                                    name="name" value="{{ $product->name }}">
+                                    name="name">
                                 @error('name')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -56,7 +55,7 @@
                                     class="form-control @error('price')
                                 is-invalid
                             @enderror"
-                                    name="price" value="{{ $product->price }}">
+                                    name="price">
                                 @error('price')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -69,7 +68,7 @@
                                     class="form-control @error('stock')
                                 is-invalid
                             @enderror"
-                                    name="stock" value="{{ $product->stock }}">
+                                    name="stock">
                                 @error('stock')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -84,7 +83,7 @@
                                     <option value="">-- Select Category --</option>
                                     @foreach ($categories as $category)
                                         <option value="{{ $category->id }}"
-                                            {{ $product->category_id == $category->id ? 'selected' : '' }}>
+                                            {{ old('category_id') == $category->id ? 'selected' : '' }}>
                                             {{ $category->name }}</option>
                                     @endforeach
                                 </select>
@@ -102,6 +101,8 @@
                                     </div>
                                 @enderror
                             </div>
+
+
                         </div>
                         <div class="card-footer text-right">
                             <button class="btn btn-primary">Submit</button>

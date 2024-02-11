@@ -31,4 +31,15 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'midtrans' => [
+        'mercant_id' => env('MIDTRANS_MERCHAT_ID'),
+        'serverKey'     => env('MIDTRANS_SERVER_KEY'),
+        'clientKey'     => env('MIDTRANS_CLIENT_KEY'),
+        'isProduction'  => env('MIDTRANS_IS_PRODUCTION', false),
+        // 'isSanitized'   => env('MIDTRANS_IS_SANITIZED'),
+        'is_sanitized' => false,
+        // 'is3ds'         => env('MIDTRANS_IS_3DS'),
+        'is_3ds' => false,
+    ],
+
 ];

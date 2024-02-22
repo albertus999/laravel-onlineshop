@@ -23,6 +23,7 @@ class User extends Authenticatable
         'password',
         'phone',
         'roles',
+        'fcm_id',
     ];
 
     /**
@@ -49,5 +50,5 @@ class User extends Authenticatable
     {
         return $this->hasMany(Address::class);
     }
-    
+
 }

@@ -43,9 +43,9 @@ Route::post('/order', [App\Http\Controllers\Api\OrderController::class, 'order']
 Route::post('/callback', [App\Http\Controllers\Api\CallbackController::class, 'callback']);
 
 //check status order by id order
-// Route::get('/order/status/{id}', [App\Http\Controllers\Api\OrderController::class, 'checkStatusOrder'])->middleware('auth:sanctum');
+Route::get('/order/status/{id}', [App\Http\Controllers\Api\OrderController::class, 'checkStatusOrder'])->middleware('auth:sanctum');
 
-Route::get('/order/status/{id}', 'Api\OrderController@checkStatusOrder')->middleware('auth:sanctum');
+// Route::get('/order/status/{id}', 'Api\OrderController@checkStatusOrder')->middleware('auth:sanctum');
 
 
 //udpate fcm id
@@ -56,3 +56,6 @@ Route::get('/orders', [App\Http\Controllers\Api\OrderController::class, 'getOrde
 
 //get order by id
 Route::get('/order/{id}', [App\Http\Controllers\Api\OrderController::class, 'getOrderById'])->middleware('auth:sanctum');
+
+//udpate fcm id
+Route::post('/update-fcm', [App\Http\Controllers\Api\AuthController::class, 'updateFcmId'])->middleware('auth:sanctum');

@@ -73,6 +73,21 @@ class AddressController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // Delete the address based on the given ID
+        $deleted = DB::table('addresses')
+                    ->where('id', $id)
+                    ->delete();
+
+        if ($deleted) {
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Address deleted successfully'
+            ]);
+        } else {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Failed to delete address'
+            ], 400);
+        }
     }
 }

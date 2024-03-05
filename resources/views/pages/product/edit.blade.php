@@ -16,7 +16,7 @@
     <div class="main-content">
         <section class="section">
             <div class="section-header">
-                <h1>Advanced Forms</h1>
+                <h1>Forms Edit Product</h1>
                 <div class="section-header-breadcrumb">
                     <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
                     <div class="breadcrumb-item"><a href="#">Forms</a></div>
@@ -53,12 +53,13 @@
                             </div>
                             <div class="form-group">
                                 <label>Description</label>
-                                <input type="text"
+                                <textarea input type="text"
                                     class="form-control @error('description')
-                                is-invalid
-                            @enderror"
-                                    name="description" value="{{ $product->description }}">
-                                @error('description')
+                                        is-invalid
+                                    @enderror"
+                                            name="description" value="{{ $product->description }}">
+                                        @error('description')
+                                </textarea>
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>

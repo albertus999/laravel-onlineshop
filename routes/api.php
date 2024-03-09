@@ -59,3 +59,9 @@ Route::get('/order/{id}', [App\Http\Controllers\Api\OrderController::class, 'get
 
 //udpate fcm id
 Route::post('/update-fcm', [App\Http\Controllers\Api\AuthController::class, 'updateFcmId'])->middleware('auth:sanctum');
+
+//delete address
+Route::delete('/addresses/{id}', [App\Http\Controllers\Api\AddressController::class, 'destroy'])->middleware('auth:sanctum');
+
+//get address by id
+Route::get('/addresses/{id}', [App\Http\Controllers\Api\AddressController::class, 'destroy'])->middleware('auth:sanctum');

@@ -53,13 +53,13 @@
                             </div>
                             <div class="form-group">
                                 <label>Description</label>
-                                <textarea input type="text"
+                                <input type="text"
                                     class="form-control @error('description')
                                         is-invalid
                                     @enderror"
                                             name="description" value="{{ $product->description }}">
                                         @error('description')
-                                </textarea>
+                                
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>

@@ -64,7 +64,7 @@ Route::post('/update-fcm', [App\Http\Controllers\Api\AuthController::class, 'upd
 Route::delete('/addresses/{id}', [App\Http\Controllers\Api\AddressController::class, 'destroy'])->middleware('auth:sanctum');
 
 //get address by id
-Route::get('/addresses/{id}', [App\Http\Controllers\Api\AddressController::class, 'index'])->middleware('auth:sanctum');
+Route::get('/addresses/{id}', [App\Http\Controllers\Api\AddressController::class, 'show'])->middleware('auth:sanctum');
 
 //edit address by id
 Route::put('/addresses/{id}', [App\Http\Controllers\Api\AddressController::class, 'update'])->middleware('auth:sanctum');

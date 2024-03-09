@@ -57,11 +57,14 @@ Route::get('/orders', [App\Http\Controllers\Api\OrderController::class, 'getOrde
 //get order by id
 Route::get('/order/{id}', [App\Http\Controllers\Api\OrderController::class, 'getOrderById'])->middleware('auth:sanctum');
 
-//udpate fcm id
+//update fcm id
 Route::post('/update-fcm', [App\Http\Controllers\Api\AuthController::class, 'updateFcmId'])->middleware('auth:sanctum');
 
 //delete address
 Route::delete('/addresses/{id}', [App\Http\Controllers\Api\AddressController::class, 'destroy'])->middleware('auth:sanctum');
 
 //get address by id
-Route::get('/addresses/{id}', [App\Http\Controllers\Api\AddressController::class, 'destroy'])->middleware('auth:sanctum');
+Route::get('/addresses/{id}', [App\Http\Controllers\Api\AddressController::class, 'index'])->middleware('auth:sanctum');
+
+//edit address by id
+Route::put('/addresses/{id}', [App\Http\Controllers\Api\AddressController::class, 'update'])->middleware('auth:sanctum');
